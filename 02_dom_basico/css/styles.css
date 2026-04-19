@@ -1,0 +1,136 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fondo general */
+body {
+  background-color: #f4f6f8;
+  color: #2c3e50;
+  padding: 20px;
+}
+
+/* Títulos */
+h2 {
+  color: #1f3a68;
+  margin-bottom: 10px;
+}
+
+h3 {
+  color: #1f3a68;
+  margin-bottom: 5px;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Secciones */
+.section {
+  margin-bottom: 20px;
+}
+
+/* Botones de filtro */
+.filters {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.filter-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  background-color: #e9ecef;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  background-color: #dfe3e6;
+}
+
+.filter-btn.active {
+  background-color: #1f3a68;
+  color: white;
+  border: none;
+}
+
+/* Tarjetas */
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Texto dentro de tarjeta */
+.card p {
+  color: #6c757d;
+  margin: 5px 0 10px;
+}
+
+/* Etiquetas (badges) */
+.badges {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Colores de badges */
+.badge.estudio {
+  background-color: #dbeafe;
+  color: #2563eb;
+}
+
+.badge.alta {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.badge.baja {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.badge.activo {
+  background-color: #d1fae5;
+  color: #059669;
+}
+
+/* Botón eliminar */
+.delete-btn {
+  margin-top: 15px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  float: right;
+  transition: background 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Estadísticas */
+.stats p {
+  margin: 3px 0;
+  font-weight: 500;
+}
