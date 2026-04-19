@@ -12,10 +12,10 @@
 /* =========================
    ESTILOS GENERALES
    ========================= */
-/* Fondo con degradado oscuro + color de texto base */
+/* Fondo claro y limpio + texto oscuro para mejor legibilidad */
 body {
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  color: #e2e8f0;
+  background: #f5f7fb;
+  color: #2d3748;
   padding: 20px;
 }
 
@@ -37,13 +37,13 @@ body {
 /* Título de sección */
 .info h2 {
   margin-bottom: 10px;
-  color: #c084fc;
+  color: #4c51bf;
 }
 
 /* Texto secundario */
 .info p {
   margin: 4px 0;
-  color: #cbd5f5;
+  color: #4a5568;
 }
 
 /* =========================
@@ -51,7 +51,7 @@ body {
    ========================= */
 .stats {
   margin: 15px 0;
-  color: #a5b4fc;
+  color: #4a5568;
 }
 
 /* =========================
@@ -67,39 +67,37 @@ body {
 .btn-filtro {
   padding: 8px 16px;
   border-radius: 20px; /* estilo tipo "pill" */
-  border: none;
-  background: #334155;
-  color: #e2e8f0;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #374151;
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
 /* Hover de botones */
 .btn-filtro:hover {
-  background: #475569;
+  background: #eef2ff;
 }
 
 /* Botón activo */
 .btn-filtro-activo {
-  background: #a78bfa;
-  color: #0f172a;
+  background: #4c51bf;
+  color: #ffffff;
   font-weight: bold;
+  border: none;
 }
 
 /* =========================
    TARJETAS
    ========================= */
 .card {
-  background: rgba(30, 41, 59, 0.8); /* efecto glass */
+  background: #ffffff;
   border-radius: 14px;
   padding: 18px;
   margin-bottom: 15px;
 
-  /* Efecto blur detrás */
-  backdrop-filter: blur(6px);
-
   /* Sombra suave */
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 
   /* Animación al interactuar */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -108,19 +106,19 @@ body {
 /* Efecto hover (levanta la tarjeta) */
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
 }
 
 /* =========================
    TEXTO DE TARJETAS
    ========================= */
 .card h3 {
-  color: #f1f5f9;
+  color: #2d3748;
   margin-bottom: 5px;
 }
 
 .card p {
-  color: #94a3b8;
+  color: #718096;
   font-size: 14px;
 }
 
@@ -144,44 +142,44 @@ body {
 
 /* Categoría */
 .badge-categoria {
-  background: #22c55e20;
-  color: #4ade80;
+  background: #e6fffa;
+  color: #2c7a7b;
 }
 
 /* =========================
    PRIORIDADES
    ========================= */
-/* Alta = rojo */
+/* Alta = rojo suave */
 .prioridad-alta {
-  background: #ef444420;
-  color: #f87171;
+  background: #ffe4e6;
+  color: #c53030;
 }
 
-/* Media = amarillo */
+/* Media = amarillo suave */
 .prioridad-media {
-  background: #f59e0b20;
-  color: #fbbf24;
+  background: #fefcbf;
+  color: #b7791f;
 }
 
-/* Baja = azul */
+/* Baja = azul suave */
 .prioridad-baja {
-  background: #3b82f620;
-  color: #60a5fa;
+  background: #ebf8ff;
+  color: #2b6cb0;
 }
 
 /* =========================
    ESTADO
    ========================= */
-/* Activo = verde */
+/* Activo = verde suave */
 .estado-activo {
-  background: #10b98120;
-  color: #34d399;
+  background: #e6fffa;
+  color: #2f855a;
 }
 
 /* Inactivo = gris */
 .estado-inactivo {
-  background: #64748b30;
-  color: #94a3b8;
+  background: #edf2f7;
+  color: #718096;
 }
 
 /* =========================
@@ -196,7 +194,7 @@ body {
 
 /* Botón eliminar */
 .btn-eliminar {
-  background: #ef4444;
+  background: #e53e3e;
   border: none;
   color: white;
   padding: 7px 14px;
@@ -209,6 +207,6 @@ body {
 
 /* Hover botón eliminar */
 .btn-eliminar:hover {
-  background: #dc2626;
+  background: #c53030;
   transform: scale(1.05); /* pequeño zoom */
 }
