@@ -1,65 +1,89 @@
 <!DOCTYPE html>
-<head lang="en">
+<html lang="es">
+
+<head>
+  <!-- Configuración básica del documento -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Título de la página -->
+  <title>Practica 2 - DOM</title>
+
+  <!-- Enlace al archivo CSS -->
+  <link rel="stylesheet" href="/02_dom_basico/css/styles.css">
+
+  <!-- Enlace al archivo JS (defer = espera a que cargue el HTML) -->
+  <script src="/02_dom_basico/js/app.js" defer></script>
 </head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practica 2 - DOM </title>
-    <script src="/02_dom_basico/js/app.js" defer></script>
-    <link rel="stylesheet" href="/02_dom_basico/css/styles.css">
-</head>
+
 <body>
 
+  <!-- Contenedor principal de toda la app -->
   <div id="app">
 
+    <!-- =========================
+         INFORMACIÓN DEL ESTUDIANTE
+         ========================= -->
     <div class="info-estudiante">
       <h2>Información del Estudiante</h2>
+
+      <!-- Estos span se llenan dinámicamente con JS -->
       <p><strong>Nombre:</strong> <span id="estudiante-nombre"></span></p>
       <p><strong>Carrera:</strong> <span id="estudiante-carrera"></span></p>
       <p><strong>Semestre:</strong> <span id="estudiante-semestre"></span></p>
     </div>
 
+    <!-- =========================
+         ESTADÍSTICAS
+         ========================= -->
     <div class="estadisticas">
       <h2>Estadísticas</h2>
+
+      <!-- También se llenan con JS -->
       <p><strong>Total:</strong> <span id="total-elementos"></span></p>
       <p><strong>Activos:</strong> <span id="elementos-activos"></span></p>
     </div>
 
+    <!-- =========================
+         FILTROS
+         ========================= -->
     <div class="filtros">
+      <!-- data-categoria se usa en JS para filtrar -->
       <button class="btn-filtro btn-filtro-activo" data-categoria="todas">Todas</button>
       <button class="btn-filtro" data-categoria="Trabajo">Trabajo</button>
       <button class="btn-filtro" data-categoria="Personal">Personal</button>
       <button class="btn-filtro" data-categoria="Estudio">Estudio</button>
     </div>
 
-    
+    <!-- =========================
+         CONTENEDOR DE TARJETAS
+         ========================= -->
     <div id="contenedor-lista">
-      <!-- Las tarjetas se insertarán aquí -->
-      <!-- Tarjeta 1-->
+
+      <!-- IMPORTANTE:
+           Estas tarjetas son solo de ejemplo.
+           JS las reemplaza dinámicamente con renderizarLista()
+      -->
+
+      <!-- Tarjeta de ejemplo -->
       <div class="card">
         <h3>Proyecto Web</h3>
-        <p>Terminar practica JS</p>
+        <p>Terminar práctica JS</p>
 
-        <div>
-            <span class="badge badge-categoria">Estudio</span>
-            <span class="badge prioridad-alta">Alta</span>
-            <span class="badge estado-activo">Activo</span>
+        <div class="badges">
+          <span class="badge badge-categoria">Estudio</span>
+          <span class="badge prioridad-alta">Alta</span>
+          <span class="badge estado-activo">Activo</span>
         </div>
 
-      <!-- Tarjeta 2 -->
-      <div class="card">
-        <h3>Leer libro</h3>
-        <p>Capítulo de JS</p>
-      
-      <div class="badges">
-        <span class="badge estudio">Estudio</span>
-        <span class="badge baja">Baja</span>
-        <span class="badge activo">Activo</span>
+        <div class="card-actions">
+          <button class="btn-eliminar">Eliminar</button>
+        </div>
       </div>
 
-      <button class="delete-btn">Eliminar</button>
-      
-    </div>
-  </div>
-    
+    </div> <!-- cierre contenedor-lista -->
+
+  </div> <!-- cierre app -->
+
 </body>
 </html>
