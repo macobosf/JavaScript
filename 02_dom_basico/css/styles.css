@@ -1,136 +1,214 @@
-/* Reset básico */
+/* =========================
+   RESET GENERAL
+   ========================= */
+/* Elimina márgenes/paddings por defecto y mejora el control del layout */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
-/* Fondo general */
+/* =========================
+   ESTILOS GENERALES
+   ========================= */
+/* Fondo con degradado oscuro + color de texto base */
 body {
-  background-color: #f4f6f8;
-  color: #2c3e50;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #e2e8f0;
   padding: 20px;
 }
 
-/* Títulos */
-h2 {
-  color: #1f3a68;
-  margin-bottom: 10px;
+/* Contenedor principal de tarjetas */
+#contenedor-lista {
+  max-width: 850px;
+  margin: 20px auto; /* centra horizontalmente */
 }
 
-h3 {
-  color: #1f3a68;
-  margin-bottom: 5px;
-}
-
-/* Contenedor principal */
-.container {
-  max-width: 800px;
+/* =========================
+   INFORMACIÓN DEL ESTUDIANTE
+   ========================= */
+.info {
+  max-width: 850px;
   margin: auto;
+  margin-bottom: 20px;
 }
 
-/* Secciones */
-.section {
+/* Título de sección */
+.info h2 {
+  margin-bottom: 10px;
+  color: #c084fc;
+}
+
+/* Texto secundario */
+.info p {
+  margin: 4px 0;
+  color: #cbd5f5;
+}
+
+/* =========================
+   ESTADÍSTICAS
+   ========================= */
+.stats {
+  margin: 15px 0;
+  color: #a5b4fc;
+}
+
+/* =========================
+   FILTROS
+   ========================= */
+.filtros {
+  display: flex;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
 /* Botones de filtro */
-.filters {
-  display: flex;
-  gap: 10px;
-  margin: 15px 0;
-}
-
-.filter-btn {
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: 1px solid #d0d5dd;
-  background-color: #e9ecef;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-.filter-btn:hover {
-  background-color: #dfe3e6;
-}
-
-.filter-btn.active {
-  background-color: #1f3a68;
-  color: white;
+.btn-filtro {
+  padding: 8px 16px;
+  border-radius: 20px; /* estilo tipo "pill" */
   border: none;
+  background: #334155;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-/* Tarjetas */
+/* Hover de botones */
+.btn-filtro:hover {
+  background: #475569;
+}
+
+/* Botón activo */
+.btn-filtro-activo {
+  background: #a78bfa;
+  color: #0f172a;
+  font-weight: bold;
+}
+
+/* =========================
+   TARJETAS
+   ========================= */
 .card {
-  background-color: #ffffff;
-  border-radius: 12px;
+  background: rgba(30, 41, 59, 0.8); /* efecto glass */
+  border-radius: 14px;
   padding: 18px;
   margin-bottom: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+  /* Efecto blur detrás */
+  backdrop-filter: blur(6px);
+
+  /* Sombra suave */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+
+  /* Animación al interactuar */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Texto dentro de tarjeta */
+/* Efecto hover (levanta la tarjeta) */
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+/* =========================
+   TEXTO DE TARJETAS
+   ========================= */
+.card h3 {
+  color: #f1f5f9;
+  margin-bottom: 5px;
+}
+
 .card p {
-  color: #6c757d;
-  margin: 5px 0 10px;
+  color: #94a3b8;
+  font-size: 14px;
 }
 
-/* Etiquetas (badges) */
+/* =========================
+   BADGES (ETIQUETAS)
+   ========================= */
 .badges {
   display: flex;
   gap: 8px;
-  margin-top: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap; /* permite que bajen de línea */
 }
 
+/* Estilo base de badges */
 .badge {
-  padding: 4px 10px;
-  border-radius: 12px;
+  padding: 5px 10px;
+  border-radius: 999px; /* completamente redondeado */
   font-size: 12px;
   font-weight: 600;
 }
 
-/* Colores de badges */
-.badge.estudio {
-  background-color: #dbeafe;
-  color: #2563eb;
+/* Categoría */
+.badge-categoria {
+  background: #22c55e20;
+  color: #4ade80;
 }
 
-.badge.alta {
-  background-color: #fee2e2;
-  color: #dc2626;
+/* =========================
+   PRIORIDADES
+   ========================= */
+/* Alta = rojo */
+.prioridad-alta {
+  background: #ef444420;
+  color: #f87171;
 }
 
-.badge.baja {
-  background-color: #dcfce7;
-  color: #16a34a;
+/* Media = amarillo */
+.prioridad-media {
+  background: #f59e0b20;
+  color: #fbbf24;
 }
 
-.badge.activo {
-  background-color: #d1fae5;
-  color: #059669;
+/* Baja = azul */
+.prioridad-baja {
+  background: #3b82f620;
+  color: #60a5fa;
+}
+
+/* =========================
+   ESTADO
+   ========================= */
+/* Activo = verde */
+.estado-activo {
+  background: #10b98120;
+  color: #34d399;
+}
+
+/* Inactivo = gris */
+.estado-inactivo {
+  background: #64748b30;
+  color: #94a3b8;
+}
+
+/* =========================
+   ACCIONES
+   ========================= */
+/* Contenedor del botón */
+.card-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end; /* alinea a la derecha */
 }
 
 /* Botón eliminar */
-.delete-btn {
-  margin-top: 15px;
-  background-color: #e74c3c;
-  color: white;
+.btn-eliminar {
+  background: #ef4444;
   border: none;
-  padding: 8px 14px;
+  color: white;
+  padding: 7px 14px;
   border-radius: 8px;
   cursor: pointer;
-  float: right;
-  transition: background 0.2s ease;
+
+  /* transición para animación */
+  transition: all 0.2s ease;
 }
 
-.delete-btn:hover {
-  background-color: #c0392b;
-}
-
-/* Estadísticas */
-.stats p {
-  margin: 3px 0;
-  font-weight: 500;
+/* Hover botón eliminar */
+.btn-eliminar:hover {
+  background: #dc2626;
+  transform: scale(1.05); /* pequeño zoom */
 }
