@@ -290,7 +290,7 @@ function eliminarElemento(id) {
 
 ```
 ## Filtrado de Tareas
-Implemetna la logica de filtrado uzando atributs ```data-*``` y metodos de arrays.
+Implementa la logica de filtrado uzando atributos ```data-*``` y metodos de arrays.
 
 ```js
 
@@ -325,8 +325,50 @@ function inicializarFiltros() {
 }
 
 ```
+### Texturas CSS para el filtrado de tareas
+
+```css
+
+/* =========================
+   FILTROS
+   ========================= */
+.filtros {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Botones de filtro */
+.btn-filtro {
+  padding: 8px 16px;
+  border-radius: 20px; /* estilo tipo "pill" */
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Hover de botones */
+.btn-filtro:hover {
+  background: #eef2ff;
+}
+
+/* Botón activo */
+.btn-filtro-activo {
+  background: #4c51bf;
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+}
+
+```
+
+
 ## Vista General de la aplicacion
 ![Figura: Vista general de la aplicacion.](/02_dom_basico/assets/C7.png)
+***Figura 1: Vista general***
+
 
 ## Renderizado de Tarjetas
 El resultado en el renderizado de las tarjetas ya en la vista a usuario nos da lo siguiente.
