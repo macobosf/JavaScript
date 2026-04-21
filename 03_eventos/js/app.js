@@ -1,9 +1,10 @@
-'use strict';
+'use strict'; // Activa el modo estricto
 
 /* =========================
    FORMULARIO
 ========================= */
 
+// Selección de elementos del DOM
 const formulario = document.querySelector('#formulario');
 const inputNombre = document.querySelector('#nombre');
 const inputEmail = document.querySelector('#email');
@@ -12,9 +13,10 @@ const textMensaje = document.querySelector('#mensaje');
 const charCount = document.querySelector('#chars');
 const resultado = document.querySelector('#resultado');
 
+// Expresión regular para validar emails
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// Centraliza la lógica visual de validación para cualquier campo.
+// Función genérica para validar campos
 function validarCampo(input, esValido, errorId) {
   const errorMsg = document.getElementById(errorId);
 
@@ -29,6 +31,7 @@ function validarCampo(input, esValido, errorId) {
   return esValido;
 }
 
+// Validaciones específicas
 function validarNombre() {
   return validarCampo(
     inputNombre,
@@ -61,7 +64,7 @@ function validarMensaje() {
   );
 }
 
-// Actualiza el contador en tiempo real y avisa visualmente si se acerca al límite.
+// Actualiza contador de caracteres
 function actualizarContador(e) {
   const longitud = e.target.value.length;
   charCount.textContent = longitud;
@@ -70,13 +73,13 @@ function actualizarContador(e) {
 
 textMensaje.addEventListener('input', actualizarContador);
 
-// Valida cada campo cuando el usuario sale de él.
+// Validación al perder foco
 inputNombre.addEventListener('blur', validarNombre);
 inputEmail.addEventListener('blur', validarEmail);
 selectAsunto.addEventListener('blur', validarAsunto);
 textMensaje.addEventListener('blur', validarMensaje);
 
-// Limpia el estado de error apenas el usuario vuelve a corregir el campo.
+// Limpia errores al modificar campos
 function limpiarError(input, errorId) {
   input.classList.remove('error');
   document.getElementById(errorId).classList.remove('visible');
@@ -87,6 +90,7 @@ inputEmail.addEventListener('input', () => limpiarError(inputEmail, 'error-email
 selectAsunto.addEventListener('change', () => limpiarError(selectAsunto, 'error-asunto'));
 textMensaje.addEventListener('input', () => limpiarError(textMensaje, 'error-mensaje'));
 
+// Muestra los datos ingresados
 function mostrarResultado() {
   resultado.innerHTML = '';
 
@@ -114,8 +118,10 @@ function mostrarResultado() {
   resultado.classList.add('visible');
 }
 
+// Reinicia el formulario
 function resetearFormulario() {
   formulario.reset();
+
   charCount.textContent = '0';
   charCount.style.color = '#999';
 
@@ -128,10 +134,10 @@ function resetearFormulario() {
   });
 }
 
+// Evento de envío del formulario
 formulario.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  // Valida todo antes de procesar el formulario.
   const nombreValido = validarNombre();
   const emailValido = validarEmail();
   const asuntoValido = validarAsunto();
@@ -143,7 +149,6 @@ formulario.addEventListener('submit', (e) => {
     return;
   }
 
-  // Lleva el foco al primer campo inválido para mejorar la experiencia.
   if (!nombreValido) {
     inputNombre.focus();
     return;
@@ -159,7 +164,7 @@ formulario.addEventListener('submit', (e) => {
   textMensaje.focus();
 });
 
-// Atajo de teclado para enviar el formulario con Ctrl + Enter.
+// Atajo Ctrl + Enter
 document.addEventListener('keydown', (e) => {
   if (e.ctrlKey && e.key === 'Enter') {
     e.preventDefault();
@@ -168,20 +173,23 @@ document.addEventListener('keydown', (e) => {
 });
 
 /* =========================
-   TAREAS CON DELEGACIÓN
+   TAREAS
 ========================= */
 
+// Elementos del DOM
 const inputNuevaTarea = document.querySelector('#nueva-tarea');
 const btnAgregar = document.querySelector('#btn-agregar');
 const listaTareas = document.querySelector('#lista-tareas');
 const contadorTareas = document.querySelector('#contador-tareas');
 
+// Estado inicial
 let tareas = [
   { id: 1, texto: 'Estudiar JavaScript', completada: false },
   { id: 2, texto: 'Hacer la práctica', completada: false },
   { id: 3, texto: 'Subir al repositorio', completada: true }
 ];
 
+// Botón eliminar
 function crearBotonEliminar() {
   const boton = document.createElement('button');
   boton.type = 'button';
@@ -191,6 +199,7 @@ function crearBotonEliminar() {
   return boton;
 }
 
+// Texto de tarea
 function crearTextoTarea(tarea) {
   const span = document.createElement('span');
   span.textContent = tarea.texto;
@@ -199,7 +208,7 @@ function crearTextoTarea(tarea) {
   return span;
 }
 
-// Construye un <li> completo a partir de una tarea del array.
+// Elemento de lista
 function crearItemTarea(tarea) {
   const li = document.createElement('li');
   li.className = `tarea-item${tarea.completada ? ' completada' : ''}`;
@@ -214,12 +223,13 @@ function crearItemTarea(tarea) {
   return li;
 }
 
+// Contador de tareas
 function actualizarContadorTareas() {
   const pendientes = tareas.filter((tarea) => !tarea.completada).length;
   contadorTareas.textContent = `${pendientes} pendiente(s)`;
 }
 
-// Vuelve a dibujar la lista completa según el estado actual del array.
+// Renderizado de lista
 function renderizarTareas() {
   listaTareas.innerHTML = '';
 
@@ -240,6 +250,7 @@ function renderizarTareas() {
   actualizarContadorTareas();
 }
 
+// Agregar tarea
 function agregarTarea() {
   const texto = inputNuevaTarea.value.trim();
 
@@ -259,6 +270,7 @@ function agregarTarea() {
   inputNuevaTarea.focus();
 }
 
+// Eventos
 btnAgregar.addEventListener('click', agregarTarea);
 
 inputNuevaTarea.addEventListener('keydown', (e) => {
@@ -268,18 +280,14 @@ inputNuevaTarea.addEventListener('keydown', (e) => {
   }
 });
 
-// Delegación de eventos: un solo listener maneja eliminar y completar tareas.
+// Manejo de clics en la lista
 listaTareas.addEventListener('click', (e) => {
   const action = e.target.dataset.action;
 
-  if (!action) {
-    return;
-  }
+  if (!action) return;
 
   const item = e.target.closest('li');
-  if (!item || !item.dataset.id) {
-    return;
-  }
+  if (!item || !item.dataset.id) return;
 
   const id = Number(item.dataset.id);
 
