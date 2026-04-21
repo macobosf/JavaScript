@@ -1,74 +1,109 @@
 <!doctype html>
 <html lang="es">
   <head>
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8" />
+    <!-- Hace que el diseño sea responsive en dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Título que aparece en la pestaña del navegador -->
     <title>Practica-03-Eventos</title>
-    <script src="/03_eventos/js/app.js" defer ></script>
+    
+    <!-- Enlace al archivo JavaScript (se carga al final gracias a defer) -->
+    <script src="/03_eventos/js/app.js" defer></script>
+    
+    <!-- Enlace a la hoja de estilos CSS -->
     <link rel="stylesheet" href="/03_eventos/css/styles.css">
   </head>
+
   <body>
+    <!-- CONTENEDOR PRINCIPAL DEL FORMULARIO -->
     <section class="container">
       <h1>Formulario de Contacto</h1>
 
+      <!-- Formulario principal (novalidate desactiva validación automática del navegador) -->
       <form id="formulario" novalidate>
+
+        <!-- Campo: Nombre -->
         <div class="form-group">
           <label for="nombre">Nombre completo *</label>
+          <!-- Input de texto -->
           <input type="text" id="nombre" placeholder="Tu nombre" />
+          <!-- Mensaje de error -->
           <p class="error-msg" id="error-nombre">
             El nombre es obligatorio y debe tener al menos 3 caracteres
           </p>
         </div>
 
+        <!-- Campo: Email -->
         <div class="form-group">
           <label for="email">Email *</label>
+          <!-- Input tipo email -->
           <input type="email" id="email" placeholder="tu@email.com" />
+          <!-- Mensaje de error -->
           <p class="error-msg" id="error-email">Ingresa un email válido</p>
         </div>
 
+        <!-- Campo: Asunto -->
         <div class="form-group">
           <label for="asunto">Asunto *</label>
+          <!-- Lista desplegable -->
           <select id="asunto">
             <option value="">Selecciona un asunto</option>
             <option value="consulta">Consulta general</option>
             <option value="soporte">Soporte técnico</option>
             <option value="sugerencia">Sugerencia</option>
           </select>
+          <!-- Mensaje de error -->
           <p class="error-msg" id="error-asunto">Selecciona un asunto</p>
         </div>
 
+        <!-- Campo: Mensaje -->
         <div class="form-group">
           <label for="mensaje">Mensaje *</label>
+          <!-- Área de texto con límite de 300 caracteres -->
           <textarea
             id="mensaje"
             rows="4"
             maxlength="300"
             placeholder="Tu mensaje..."
           ></textarea>
+
+          <!-- Contador de caracteres -->
           <p class="char-count"><span id="chars">0</span>/300</p>
+
+          <!-- Mensaje de error -->
           <p class="error-msg" id="error-mensaje">
             El mensaje debe tener al menos 10 caracteres
           </p>
         </div>
 
+        <!-- Botón para enviar el formulario -->
         <button type="submit">Enviar</button>
       </form>
 
+      <!-- Contenedor para mostrar resultados o mensajes dinámicos -->
       <div id="resultado"></div>
     </section>
 
-    <!-- SECCIÓN 2: TAREAS -->
+    <!-- SECCIÓN DE LISTA DE TAREAS -->
     <section class="container">
       <h2>Mis Tareas</h2>
 
+      <!-- Input para agregar nueva tarea -->
       <div class="input-group">
         <input type="text" id="nueva-tarea" placeholder="Nueva tarea..." />
+        
+        <!-- Botón para agregar tarea (data-action útil para JS) -->
         <button type="button" id="btn-agregar" data-action="agregar">
           Agregar
         </button>
       </div>
 
+      <!-- Lista donde se renderizan las tareas -->
       <ul id="lista-tareas"></ul>
+
+      <!-- Contador de tareas pendientes -->
       <p id="contador-tareas">0 pendiente(s)</p>
     </section>
   </body>
