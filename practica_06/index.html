@@ -1,64 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Práctica 6 - Fetch API</title>
-    <link rel="stylesheet" href="/JavaScript/practica_06/css/styles.css">
+  <!-- Configuración básica del documento -->
+  <meta charset="UTF-8"> <!-- Permite caracteres especiales -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+
+  <!-- Título de la página -->
+  <title>Práctica 6 - Fetch API</title>
+
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="/JavaScript/practica_06/css/styles.css">
 </head>
+
 <body>
-    <main class="page">
-    <!-- SECCIÓN 1: FORMULARIO -->
+  <!-- Contenedor principal de la aplicación -->
+  <main class="page">
+
+    <!-- =========================
+         SECCIÓN 1: FORMULARIO
+    ========================== -->
     <section class="container">
       <h1>Gestor de Posts</h1>
-      
+
+      <!-- Formulario para crear o editar posts -->
       <form id="form-post" class="form-post">
+
+        <!-- Input oculto para almacenar el ID del post (usado en modo edición) -->
         <input type="hidden" id="post-id">
-        
+
+        <!-- Campo de título -->
         <div class="form-group">
           <label for="titulo">Título *</label>
           <input type="text" id="titulo" placeholder="Título del post" required>
         </div>
 
+        <!-- Campo de contenido -->
         <div class="form-group">
           <label for="contenido">Contenido *</label>
           <textarea id="contenido" rows="4" placeholder="Contenido del post..." required></textarea>
         </div>
 
+        <!-- Botones de acción del formulario -->
         <div class="form-actions">
+          <!-- Botón principal (crear / actualizar) -->
           <button type="submit" id="btn-submit">Crear Post</button>
-          <button type="button" id="btn-cancelar" class="btn-secondary" style="display: none;">Cancelar</button>
+
+          <!-- Botón para cancelar edición (oculto por defecto) -->
+          <button type="button" id="btn-cancelar" class="btn-secondary" style="display: none;">
+            Cancelar
+          </button>
         </div>
       </form>
     </section>
 
-    <!-- SECCIÓN 2: FILTROS Y BÚSQUEDA -->
+    <!-- =========================
+         SECCIÓN 2: BÚSQUEDA Y FILTROS
+    ========================== -->
     <section class="container">
+
+      <!-- Barra de búsqueda -->
       <div class="search-bar">
         <input type="search" id="input-buscar" placeholder="Buscar posts...">
+
+        <!-- Botón para ejecutar búsqueda -->
         <button type="button" id="btn-buscar">Buscar</button>
-        <button type="button" id="btn-limpiar" class="btn-secondary">Limpiar</button>
+
+        <!-- Botón para limpiar búsqueda -->
+        <button type="button" id="btn-limpiar" class="btn-secondary">
+          Limpiar
+        </button>
       </div>
-      
+
+      <!-- Contador dinámico de posts -->
       <div class="stats">
-        <p id="contador">Total: <strong>0</strong> posts</p>
+        <p id="contador">
+          Total: <strong>0</strong> posts
+        </p>
       </div>
     </section>
 
-    <!-- SECCIÓN 3: LISTA DE POSTS -->
+    <!-- =========================
+         SECCIÓN 3: LISTA DE POSTS
+    ========================== -->
     <section class="container">
       <h2>Posts</h2>
-      
+
+      <!-- Contenedor donde se renderizan los posts dinámicamente desde JS -->
       <div id="lista-posts" class="lista-posts">
-        <!-- Los posts se renderizan aquí dinámicamente -->
+        <!-- Contenido generado dinámicamente -->
       </div>
 
+      <!-- Contenedor para mensajes de estado (éxito / error) -->
       <div id="mensaje-estado" class="mensaje-estado"></div>
     </section>
+
   </main>
 
+  <!-- =========================
+       SCRIPTS
+  ========================== -->
+
+  <!-- Servicio de API (peticiones HTTP) -->
   <script defer src="/JavaScript/practica_06/js/apiService.js"></script>
+
+  <!-- Componentes reutilizables (UI) -->
   <script defer src="/JavaScript/practica_06/js/components.js"></script>
-  <script defer src="js/app.js"></script>
+
+  <!-- Lógica principal de la aplicación -->
+  <script defer src="/JavaScript/practica_06/js/app.js"></script>
+
 </body>
+
 </html>
