@@ -82,5 +82,140 @@ async request(endpoint, options = {}) {
 
 ```
 
+## Crear un post (POST)
+```js
+
+async createPost(postData) {
+  return this.request('/posts', {
+    method: 'POST',
+    body: JSON.stringify(postData)
+  });
+}
+
+```
+
+## Actualizar un post
+
+```js
+
+async updatePost(id, postData) {
+  return this.request(`/posts/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(postData)
+  });
+}
+
+```
+
+## Eliminar un post
+
+```js
+
+async deletePost(id) {
+  return this.request(`/posts/${id}`, {
+    method: 'DELETE'
+  });
+}
+
+```
+
+## Componentes dinamicos
+
+```js
+
+function PostCard(post) {
+  const article = document.createElement('article');
+  article.className = 'post-card';
+
+  const title = document.createElement('h3');
+  title.textContent = post.title;
+
+  const body = document.createElement('p');
+  body.textContent = post.body;
+
+  article.append(title, body);
+
+  return article;
+}
+
+```
+
+## Carga inicial de datos
+
+```js
+
+async function cargarPosts() {
+  mostrarCargando(listaPosts);
+
+  posts = await ApiService.getPosts(20);
+  postsFiltrados = [...posts];
+
+  renderizarPosts(postsFiltrados, listaPosts);
+  actualizarContador();
+}
+
+```
+
+## Guardar (crear o editar)
+
+```js
+
+async function guardarPost(datosPost) {
+  if (modoEdicion) {
+    const id = parseInt(inputPostId.value);
+    await ApiService.updatePost(id, datosPost);
+  } else {
+    const nuevo = await ApiService.createPost(datosPost);
+    posts.unshift(nuevo);
+  }
+
+  postsFiltrados = [...posts];
+  renderizarPosts(postsFiltrados, listaPosts);
+}
+
+```
+## Busquedas de posts
+
+```js
+
+function buscarPosts(termino) {
+  const t = termino.toLowerCase();
+
+  postsFiltrados = posts.filter(post =>
+    post.title.toLowerCase().includes(t) ||
+    post.body.toLowerCase().includes(t)
+  );
+
+  renderizarPosts(postsFiltrados, listaPosts);
+}
+
+```
+
 
 ## Evidencia de Funcionamiento
+
+## Capturas de Pantalla
+
+### Datos de la api renderizados en la pagina
+![Lista](/JavaScript/practica_06/assets/lista.png)
+**Descripcion:** Se obtienen N regristos desde la API
+
+### Estado de carga visible
+![Spinner](/JavaScript/practica_06/assets/spinner.png)
+**Descripcion:** Carga de datos
+
+### Formulario enviado, nuevo item en la lista
+![Crear](/JavaScript/practica_06/assets/crear.png)
+**Descripcion:** Creacion de una nueva card
+
+### Item removido
+![Eliminar](/JavaScript/practica_06/assets/eliminar.png)
+**Descripcion:** Eliminacion de objeto
+
+### Mensaje de error al fallar una peticion
+![Error](/JavaScript/practica_06/assets/error.png)
+**Descripcion:** Mensaje de error al fallar una peticion
+
+### Pestaña Network mostrando las peticiones HTTP
+![DevTools Network](/JavaScript/practica_06/assets/DevTools.png)
+**Descripcion:** Interaccion Fetch con las peticiones HTTP
