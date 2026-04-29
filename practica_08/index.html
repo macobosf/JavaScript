@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 08</title>
+
+    <!-- Hoja de estilos principal -->
+    <link rel="stylesheet" href="/JavaScript/practica_08/css/styless.css">
+</head>
+
+<body>
+
+    <main class="container">
+        <!-- Formulario con validación manejada por JavaScript -->
+        <form id="formulario" novalidate>
+            <h2>Registro</h2>
+
+            <!-- Nombre -->
+            <div class="campo">
+                <input type="text" name="nombre" placeholder="Nombre">
+                <small class="error"></small>
+            </div>
+
+            <!-- Email -->
+            <div class="campo">
+                <input type="email" name="email" placeholder="Email">
+                <small class="error"></small>
+            </div>
+
+            <!-- Teléfono -->
+            <div class="campo">
+                <input type="tel" name="telefono" placeholder="Teléfono">
+                <small class="error"></small>
+            </div>
+
+            <!-- Fecha -->
+            <div class="campo">
+                <input type="date" name="fecha">
+                <small class="error"></small>
+            </div>
+
+            <!-- Género -->
+            <div class="campo">
+                <select name="genero">
+                    <option value="">Seleccione género</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                </select>
+                <small class="error"></small>
+            </div>
+
+            <!-- Contraseña -->
+            <div class="campo password-container">
+                <input type="password" name="password" id="password" placeholder="Contraseña">
+                <span class="toggle-password" data-target="password">👁️</span>
+                <!-- Indicador visual de fuerza -->
+                <div class="fuerza-container">
+                    <div id="fuerza"></div>
+                </div>
+                <small class="error"></small>
+            </div>
+
+            <!-- Confirmación -->
+            <div class="campo password-container">
+                <input type="password" name="confirmar" id="confirmar" placeholder="Confirmar contraseña">
+                <span class="toggle-password" data-target="confirmar">👁️</span>
+                <small class="error"></small>
+            </div>
+
+            <!-- Términos -->
+            <div class="campo">
+                <label>
+                    <input type="checkbox" name="terminos"> Acepto términos
+                </label>
+                <small class="error"></small>
+            </div>
+
+            <!-- Botón deshabilitado hasta validar -->
+            <button type="submit" disabled>Enviar</button>
+
+            <!-- Mensaje de estado -->
+            <p id="mensaje"></p>
+        </form>
+    </main>
+
+    <!-- Script principal -->
+    <script type="module" src="/JavaScript/practica_08/js/app.js"></script>
+</body>
+
+</html>

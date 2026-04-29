@@ -1,0 +1,92 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor del formulario */
+.container {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    width: 320px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.password-container {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 35px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Inputs y selects */
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    transition: 0.3s;
+}
+
+/* Estado focus */
+input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* Mensajes de error */
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+/* Estados visuales */
+.valido {
+    border-color: green;
+}
+
+.invalido {
+    border-color: red;
+}
+
+/* Botón */
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #667eea;
+    color: white;
+    cursor: pointer;
+}
+
+button:disabled {
+    background: gray;
+}
+
+/* Barra de fuerza */
+.fuerza-container {
+    height: 6px;
+    background: #eee;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+#fuerza {
+    height: 100%;
+    width: 0%;
+}
