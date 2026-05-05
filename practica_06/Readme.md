@@ -197,25 +197,25 @@ function buscarPosts(termino) {
 ## Capturas de Pantalla
 
 ### Datos de la api renderizados en la pagina
-![Lista](/JavaScript/practica_06/assets/lista.png)
+![Lista](/practica_06/assets/lista.png)
 **Descripcion:** Se obtienen N regristos desde la API
 
 ### Estado de carga visible
-![Spinner](/JavaScript/practica_06/assets/spinner.png)
+![Spinner](/practica_06/assets/spinner.png)
 **Descripcion:** Carga de datos
 
 ### Formulario enviado, nuevo item en la lista
-![Crear](/JavaScript/practica_06/assets/crear.png)
+![Crear](/practica_06/assets/crear.png)
 **Descripcion:** Creacion de una nueva card
 
 ### Item removido
-![Eliminar](/JavaScript/practica_06/assets/eliminar.png)
+![Eliminar](/practica_06/assets/eliminar.png)
 **Descripcion:** Eliminacion de objeto
 
 ### Mensaje de error al fallar una peticion
-![Error](/JavaScript/practica_06/assets/error.png)
+![Error](/practica_06/assets/error.png)
 **Descripcion:** Mensaje de error al fallar una peticion
 
 ### Pestaña Network mostrando las peticiones HTTP
-![DevTools Network](/JavaScript/practica_06/assets/DevTools.png)
+![DevTools Network](/practica_06/assets/DevTools.png)
 **Descripcion:** Interaccion Fetch con las peticiones HTTP

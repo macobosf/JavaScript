@@ -47,16 +47,16 @@ El sistema valida los datos ingresados en tiempo real, proporciona retroalimenta
 
 ## Evidencia Grafica
 ### Errores de Validacion
-![Errores](/JavaScript/practica_08/assets/error.png)
+![Errores](/practica_08/assets/error.png)
 
 **Descripcion:** Se muestran mensajes de error
 
 ### Campos Validados
-![Validacion](/JavaScript/practica_08/assets/valido.png)
+![Validacion](/practica_08/assets/valido.png)
 
 **Descripcion:** Campos validados segun los parametros
 
 ### Registro
-![Registro](/JavaScript/practica_08/assets/registro.png)
+![Registro](/practica_08/assets/registro.png)
 
 **Descripcion:** Registro Exitoso
